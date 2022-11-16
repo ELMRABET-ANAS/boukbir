@@ -1,0 +1,37 @@
+<h1>User App</h1>
+
+<div style="margin-top: 10px">
+  <div>
+    <label>Family name</label>
+  </div>
+  <div>
+    <input type="text" [(ngModel)]="familyName"/>
+  </div>
+</div>
+
+
+<div style="margin-top: 10px">
+  <div>
+    <label>First name</label>
+  </div>
+  <div>
+    <input type="text" [(ngModel)]="firstName"/>
+  </div>
+</div>
+
+<button style="background-color: green; margin-top: 10px" type="button" (click)="save()">Ajouter</button>
+
+<table style="margin-top: 50px">
+  <tr>
+    <th></th>
+    <th>First Name</th>
+    <th>Family Name</th>
+  </tr>
+  <tr *ngFor="let user of users, let i = index">
+    <td>
+    <button style="background-color: red" type="button" (click)="deleteUser(i)">x</button>
+    </td>
+    <td>{{user.firstName}}</td>
+    <td>{{user.lastName}}</td>
+  </tr>
+</table>
