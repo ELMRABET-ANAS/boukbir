@@ -1,0 +1,8 @@
+{
+  "/api": {
+    "target": "http://116105.bloggy.ecole-it.devigne.space/posts",
+    "secure": false
+  },
+  "changeOrigin": true,
+  "logLevel": "debug"
+}

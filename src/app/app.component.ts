@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-import {User} from "./models/User";
+import {Component, OnInit} from '@angular/core';
+import {Author, Post} from "./models/Post";
+import {PostsService} from "./services/posts.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -7,24 +9,5 @@ import {User} from "./models/User";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'userApp';
-  familyName:any;
-  firstName:any;
-  users:User[]=[];
 
-  save() {
-    if (!this.familyName || !this.firstName)
-      return alert("Veuillez remplir tous les champs !")
-    else if (this.users.length >= 5)
-      return alert("Vous ne pouvez pas ajouter un utilisateur !")
-
-      let user = new User()
-      user.firstName = this.firstName
-      user.lastName = this.familyName
-      this.users.push(user)
-  }
-
-  deleteUser(id:number) {
-      this.users.splice(id, 1);
-  }
 }
