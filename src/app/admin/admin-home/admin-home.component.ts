@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import {Author, Post} from "../models/Post";
+import {Author, Post} from "../../models/Post";
 import {Router} from "@angular/router";
-import {PostsService} from "../services/posts.service";
+import {PostsService} from "../../services/posts.service";
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-admin-home',
+  templateUrl: './admin-home.component.html',
+  styleUrls: ['./admin-home.component.css']
 })
-export class HomeComponent implements OnInit{
+export class AdminHomeComponent implements OnInit{
 
   posts:Post[] = [];
   authors:Author[] = [];
-  router!: Router;
 
   constructor(
+    private router : Router,
     private postsService:PostsService,
   ) {
   }
@@ -33,6 +33,20 @@ export class HomeComponent implements OnInit{
         })
       })
     })
+  }
+
+  toPostForm(){
+    this.router.navigateByUrl('/admin/createPost');
+  }
+
+  deletePost(id:number){
+    this.postsService.deletePost(id).subscribe(() => {
+      console.warn('Delete successful')
+    })
+  }
+
+  toModify(id:number){
+    console.warn(id)
   }
 
 }

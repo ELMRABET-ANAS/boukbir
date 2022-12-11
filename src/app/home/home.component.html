@@ -1,11 +1,11 @@
-<div>
+<div class="text-center">
   <h1>Home page</h1>
 
-<div class="m-lg-5 container-fluid">
+<div class="m-lg-5">
   <h1>Bloggy</h1>
   <h2>Our posts</h2>
 
-  <div *ngFor="let post of posts" >
+  <div *ngFor="let post of posts">
     <div class="card" style="width: 20rem">
       <img class="card-img-top" src="{{post.image_url}}"
            alt="cardImg">
@@ -15,7 +15,7 @@
         <p class="card-text">
           Resume : {{post.resume}}
         </p>
-        <a>Author : {{post.author_id}}</a>
+        <a>Author : {{post.authorName}}</a>
         <br>
         <a routerLink="/post/{{post.id}}">to post</a>
       </div>

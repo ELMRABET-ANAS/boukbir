@@ -6,10 +6,10 @@ export class Post {
   public image_url!:string;
   public author_id!: any;
   public created_at!:string;
-
+  public authorName!:string;
 }
 
 export class Author{
-  public author_id: any;
+  public id: any;
   public full_name!:string;
 }

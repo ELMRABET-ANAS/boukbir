@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {PostsService} from "../services/posts.service";
 import {Post} from "../models/Post";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-post',
@@ -11,11 +11,12 @@ import {ActivatedRoute} from "@angular/router";
 export class PostComponent implements OnInit {
 
   post!:Post;
-  id!:any
+  id!:any;
 
   constructor(
     private postsService: PostsService,
-    private route:ActivatedRoute
+    private route:ActivatedRoute,
+    private router:Router
   ) {
   }
 
@@ -24,9 +25,14 @@ export class PostComponent implements OnInit {
       this.id = value
       this.postsService.findPostById(this.id.id).subscribe(post => {
         this.post = post
-        console.warn(post)
+      },error => {
+        this.toErrorPage()
       })
     })
+  }
+
+  toErrorPage(){
+    this.router.navigate(['notfound'])
   }
 
 }
